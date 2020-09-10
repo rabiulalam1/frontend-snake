@@ -2,7 +2,7 @@ const BG_COLOR = "#231f20";
 const SNAKE_COLOR = "#c2c2c2";
 const FOOD_COLOR = "#e66916";
 
-const socket = io("https://obscure-citadel-40924.herokuapp.com");
+const socket = io("http://localhost:3000"); //
 
 socket.on("init", handleInit);
 socket.on("gameState", handleGameState);
@@ -10,6 +10,7 @@ socket.on("gameOver", handleGameOver);
 socket.on("gameCode", handleGameCode);
 socket.on("unknownRoom", handleUnknownRoom);
 socket.on("cantjoin", handleCantJoin);
+socket.on("startTimer", handleStartTimer);
 
 const gameScreen = document.getElementById("gameScreen");
 const initialScreen = document.getElementById("initialScreen");
@@ -117,6 +118,17 @@ function handleUnknownRoom() {
 function handleCantJoin() {
   reset();
   alert("This room is full, plaese create new game");
+}
+
+//Starting game in 3 sec delay
+function handleStartTimer() {
+  let timer = 2;
+  let int = setInterval(() => {
+    timer--;
+    if (timer == 0) {
+      clearInterval(int);
+    }
+  }, 1000);
 }
 
 function reset() {
