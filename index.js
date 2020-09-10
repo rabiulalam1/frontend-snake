@@ -1,5 +1,6 @@
 const BG_COLOR = "#231f20";
-const SNAKE_COLOR = "#c2c2c2";
+const SNAKE_COLOR_P1 = "#c2c2c2";
+const SNAKE_COLOR_P2 = "00adb5";
 const FOOD_COLOR = "#e66916";
 
 const socket = io("https://obscure-citadel-40924.herokuapp.com");
@@ -67,8 +68,8 @@ function paintGame(state) {
   ctx.fillStyle = FOOD_COLOR;
   ctx.fillRect(food.x * size, food.y * size, size, size);
 
-  paintPlayer(state.players[0], size, SNAKE_COLOR);
-  paintPlayer(state.players[1], size, SNAKE_COLOR);
+  paintPlayer(state.players[0], size, SNAKE_COLOR_P1);
+  paintPlayer(state.players[1], size, SNAKE_COLOR_P2);
 }
 
 function paintPlayer(playerState, size, color) {
