@@ -5,6 +5,7 @@ const FOOD_COLOR = "#e66916";
 
 const socket = io("http://localhost:3000");
 //("https://obscure-citadel-40924.herokuapp.com")
+//("http://localhost:3000")
 
 socket.on("init", handleInit);
 socket.on("gameState", handleGameState);
