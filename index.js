@@ -3,7 +3,8 @@ const SNAKE_COLOR_P1 = "#c2c2c2";
 const SNAKE_COLOR_P2 = "#00adb5";
 const FOOD_COLOR = "#e66916";
 
-const socket = io("https://obscure-citadel-40924.herokuapp.com");
+const socket = io("http://localhost:3000");
+//("https://obscure-citadel-40924.herokuapp.com")
 
 socket.on("init", handleInit);
 socket.on("gameState", handleGameState);
@@ -19,6 +20,9 @@ const newGameButton = document.getElementById("newGameButton");
 const joinGameButton = document.getElementById("joinGameButton");
 const gameCodeInput = document.getElementById("gameCodeInput");
 const gameCodeDisplay = document.getElementById("gameCodeDisplay");
+const codeDisplayHeader = document.getElementById("codeDisplayHeader");
+const scoreP1Display = document.getElementById("player1Score");
+const scoreP2Display = document.getElementById("player2Score");
 
 newGameButton.addEventListener("click", newGame);
 joinGameButton.addEventListener("click", joinGame);
@@ -70,6 +74,10 @@ function paintGame(state) {
 
   paintPlayer(state.players[0], size, SNAKE_COLOR_P1);
   paintPlayer(state.players[1], size, SNAKE_COLOR_P2);
+
+  codeDisplayHeader.style.display = "none";
+  scoreP1Display.innerText = state.players[0].score;
+  scoreP2Display.innerText = state.players[1].score;
 }
 
 function paintPlayer(playerState, size, color) {
@@ -101,9 +109,23 @@ function handleGameOver(data) {
   gameActive = false;
 
   if (data.winner === playerNumber) {
-    alert("You Win!");
+    swal({
+      title: "You Win!",
+      text: "Like to play again?",
+      icon: "success",
+      button: "New Match",
+    }).then((newMatch) => {
+      reset();
+    });
   } else {
-    alert("You Lose, needs to eat more cookie");
+    swal({
+      title: "You Loose!",
+      text: "Like to play again?",
+      icon: "error",
+      button: "New Match",
+    }).then((newMatch) => {
+      reset();
+    });
   }
 }
 
@@ -123,13 +145,10 @@ function handleCantJoin() {
 
 //Starting game in 3 sec delay
 function handleStartTimer() {
-  let timer = 2;
-  let int = setInterval(() => {
-    timer--;
-    if (timer == 0) {
-      clearInterval(int);
-    }
-  }, 1000);
+  swal("Bon Appétit!", {
+    buttons: false,
+    timer: 3000,
+  });
 }
 
 function reset() {
