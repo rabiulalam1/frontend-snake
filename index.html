@@ -2,60 +2,248 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>MultiPlayer Snake</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-
-    <style>
-      #gameScreen {
-        display: none;
-      }
-    </style>
+    <title>Kaa -The Snake Game</title>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <section class="vh-100">
-      <div class="container h-100">
-        <div id="initialScreen" class="h-100">
-          <div
-            class="d-flex flex-column align-items-center justify-content-center h-100"
-          >
-            <h1>Multiplayer Snake</h1>
-            <button type="submit" class="btn btn-success" id="newGameButton">
+    <section id="background">
+      <div class="hex-container">
+        <div class="row">
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <!---16time)-->
+        </div>
+        <div class="row">
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <!---16time)-->
+        </div>
+        <div class="row">
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <!---16time)-->
+        </div>
+        <div class="row">
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <!---16time)-->
+        </div>
+        <div class="row">
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <!---16time)-->
+        </div>
+        <div class="row">
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <!---16time)-->
+        </div>
+        <div class="row">
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <!---16time)-->
+        </div>
+        <div class="row">
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <!---16time)-->
+        </div>
+        <div class="row">
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <!---16time)-->
+        </div>
+        <div class="row">
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <div class="hexagon"></div>
+          <!---16time)-->
+        </div>
+      </div>
+    </section>
+
+    <section id="main">
+      <div id="initialScreen" class="container-bx">
+        <div class="logo">
+          <img src="./kaa-logo.png" alt="kaa-logo" />
+          <div class="form-bx">
+            <button type="submit" class="" id="newGameButton">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
               Create New Game
             </button>
-            <div>OR</div>
-            <div class="form-group">
+            <hr />
+            <div class="input-gamecode">
               <input
-                type="text"
+                type="number"
                 placeholder="Enter Game Code"
                 id="gameCodeInput"
+                min="1000"
+                max="9999"
               />
             </div>
-            <button type="submit" class="btn btn-success" id="joinGameButton">
+            <button type="submit" class="" id="joinGameButton">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
               Join Game
             </button>
           </div>
         </div>
+      </div>
 
-        <div id="gameScreen" class="h-100">
-          <div
-            class="d-flex flex-column align-items-center justify-content-center h-100"
-          >
-            <h1 id="codeDisplayHeader">
-              Your game code is: <span id="gameCodeDisplay"></span>
-            </h1>
-            <h4 style="display: inline-block">
-              Player 1: <span id="player1Score">0</span>
-            </h4>
+      <div id="gameScreen" class="">
+        <div class="">
+          <h1 id="codeDisplayHeader">
+            Your game code is: <span id="gameCodeDisplay"></span>
+          </h1>
+          <h4>Player 1: <span id="player1Score">0</span></h4>
 
-            <h4 style="display: inline-block">
-              Player 2: <span id="player2Score">0</span>
-            </h4>
+          <h4>Player 2: <span id="player2Score">0</span></h4>
 
-            <canvas id="canvas"></canvas>
-          </div>
+          <canvas id="canvas"></canvas>
         </div>
       </div>
     </section>

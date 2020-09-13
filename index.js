@@ -3,7 +3,7 @@ const SNAKE_COLOR_P1 = "#c2c2c2";
 const SNAKE_COLOR_P2 = "#00adb5";
 const FOOD_COLOR = "#e66916";
 
-const socket = io("https://obscure-citadel-40924.herokuapp.com");
+const socket = io("http://localhost:3000");
 //("https://obscure-citadel-40924.herokuapp.com")
 //("http://localhost:3000")
 
@@ -116,7 +116,7 @@ function handleGameOver(data) {
       icon: "success",
       button: "New Match",
     }).then((newMatch) => {
-      reset();
+      location.reload();
     });
   } else {
     swal({
@@ -125,7 +125,7 @@ function handleGameOver(data) {
       icon: "error",
       button: "New Match",
     }).then((newMatch) => {
-      reset();
+      location.reload();
     });
   }
 }
@@ -135,13 +135,13 @@ function handleGameCode(gameCode) {
 }
 
 function handleUnknownRoom() {
-  reset();
   alert("Unknown Game Code");
+  reset();
 }
 
 function handleCantJoin() {
-  reset();
   alert("This room is full, plaese create new game");
+  reset();
 }
 
 //Starting game in 3 sec delay
