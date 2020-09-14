@@ -157,7 +157,6 @@ function handleUnknownRoom() {
   swal({
     className: "warning",
     title: "Invalid Game Code !",
-    icon: "waning",
     buttons: false,
     timer: 1500,
   });
@@ -168,7 +167,6 @@ function handleCantJoin() {
   swal({
     className: "warning",
     title: "Room is full !",
-    icon: "waning",
     buttons: false,
     timer: 1500,
   });
