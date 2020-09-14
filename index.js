@@ -1,9 +1,9 @@
-const BG_COLOR = "#231f20";
-const SNAKE_COLOR_P1 = "#c2c2c2";
-const SNAKE_COLOR_P2 = "#00adb5";
+const BG_COLOR = "#111111";
+const SNAKE_COLOR_P1 = "#d724cc";
+const SNAKE_COLOR_P2 = "#028701";
 const FOOD_COLOR = "#e66916";
 
-const socket = io("http://localhost:3000");
+const socket = io("https://obscure-citadel-40924.herokuapp.com");
 //("https://obscure-citadel-40924.herokuapp.com")
 //("http://localhost:3000")
 
@@ -12,7 +12,7 @@ socket.on("gameState", handleGameState);
 socket.on("gameOver", handleGameOver);
 socket.on("gameCode", handleGameCode);
 socket.on("unknownRoom", handleUnknownRoom);
-socket.on("cantjoin", handleCantJoin);
+socket.on("tooManyPlayers", handleCantJoin);
 socket.on("startTimer", handleStartTimer);
 
 const gameScreen = document.getElementById("gameScreen");
@@ -20,10 +20,13 @@ const initialScreen = document.getElementById("initialScreen");
 const newGameButton = document.getElementById("newGameButton");
 const joinGameButton = document.getElementById("joinGameButton");
 const gameCodeInput = document.getElementById("gameCodeInput");
-const gameCodeDisplay = document.getElementById("gameCodeDisplay");
-const codeDisplayHeader = document.getElementById("codeDisplayHeader");
 const scoreP1Display = document.getElementById("player1Score");
 const scoreP2Display = document.getElementById("player2Score");
+
+let win = new Audio();
+win.src = "./winning.mp3";
+let loose = new Audio();
+loose.src = "./loosing.mp3";
 
 newGameButton.addEventListener("click", newGame);
 joinGameButton.addEventListener("click", joinGame);
@@ -76,7 +79,6 @@ function paintGame(state) {
   paintPlayer(state.players[0], size, SNAKE_COLOR_P1);
   paintPlayer(state.players[1], size, SNAKE_COLOR_P2);
 
-  codeDisplayHeader.style.display = "none";
   scoreP1Display.innerText = state.players[0].score;
   scoreP2Display.innerText = state.players[1].score;
 }
@@ -110,19 +112,19 @@ function handleGameOver(data) {
   gameActive = false;
 
   if (data.winner === playerNumber) {
+    win.play();
     swal({
       title: "You Win!",
       text: "Like to play again?",
-      icon: "success",
       button: "New Match",
     }).then((newMatch) => {
       location.reload();
     });
   } else {
+    loose.play();
     swal({
       title: "You Loose!",
       text: "Like to play again?",
-      icon: "error",
       button: "New Match",
     }).then((newMatch) => {
       location.reload();
@@ -131,7 +133,12 @@ function handleGameOver(data) {
 }
 
 function handleGameCode(gameCode) {
-  gameCodeDisplay.innerText = gameCode;
+  swal({
+    className: "game-code",
+    title: "Game Code",
+    text: gameCode,
+    button: "OK",
+  });
 }
 
 function handleUnknownRoom() {
@@ -154,7 +161,6 @@ function handleStartTimer() {
 
 function reset() {
   playerNumber = null;
-  gameCodeInput.value = "";
   initialScreen.style.display = "block";
   gameScreen.style.display = "none";
 }

@@ -206,7 +206,7 @@
         <div class="logo">
           <img src="./kaa-logo.png" alt="kaa-logo" />
           <div class="form-bx">
-            <button type="submit" class="" id="newGameButton">
+            <button type="submit" class="frontPage-btn" id="newGameButton">
               <span></span>
               <span></span>
               <span></span>
@@ -219,11 +219,9 @@
                 type="number"
                 placeholder="Enter Game Code"
                 id="gameCodeInput"
-                min="1000"
-                max="9999"
               />
             </div>
-            <button type="submit" class="" id="joinGameButton">
+            <button type="submit" class="frontPage-btn" id="joinGameButton">
               <span></span>
               <span></span>
               <span></span>
@@ -234,16 +232,29 @@
         </div>
       </div>
 
-      <div id="gameScreen" class="">
-        <div class="">
-          <h1 id="codeDisplayHeader">
-            Your game code is: <span id="gameCodeDisplay"></span>
-          </h1>
-          <h4>Player 1: <span id="player1Score">0</span></h4>
-
-          <h4>Player 2: <span id="player2Score">0</span></h4>
-
-          <canvas id="canvas"></canvas>
+      <div id="gameScreen">
+        <div class="game-content">
+          <div class="frontPage-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <h4>
+              Player 1
+              <p id="player1Score">0</p>
+            </h4>
+          </div>
+          <div><canvas id="canvas"></canvas></div>
+          <div class="frontPage-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <h4>
+              Player 2
+              <p id="player2Score">0</p>
+            </h4>
+          </div>
         </div>
       </div>
     </section>

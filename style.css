@@ -68,10 +68,6 @@ body {
   z-index: 1000;
 }
 
-#gameScreen {
-  display: none;
-}
-
 #main {
   position: relative;
   width: fit-content;
@@ -83,7 +79,7 @@ body {
   position: relative;
   content: "";
   margin-top: 50px;
-  padding: 10px;
+  padding: 40px;
   width: 550px;
   height: 500px;
   display: flex;
@@ -132,7 +128,7 @@ body {
   align-items: center;
 }
 
-button {
+.frontPage-btn {
   background-color: transparent;
   border: none;
   outline: none;
@@ -147,17 +143,17 @@ button {
   overflow: hidden;
   transition: 0.5s;
 }
-button:hover {
+.frontPage-btn:hover {
   background: #f42f03;
   color: #050801;
   box-shadow: 0 0 5px #f42f03, 0 0 25px #f42f03, 0 0 50px #f42f03,
     0 0 200px #f42f03;
 }
-button span {
+.frontPage-btn span {
   position: absolute;
   display: block;
 }
-button span:nth-child(1) {
+.frontPage-btn span:nth-child(1) {
   top: 0;
   left: -100%;
   width: 100%;
@@ -175,7 +171,7 @@ button span:nth-child(1) {
     left: 100%;
   }
 }
-button span:nth-child(3) {
+.frontPage-btn span:nth-child(3) {
   bottom: 0;
   right: -100%;
   width: 100%;
@@ -193,7 +189,7 @@ button span:nth-child(3) {
     right: 100%;
   }
 }
-button span:nth-child(2) {
+.frontPage-btn span:nth-child(2) {
   top: -100%;
   right: 0;
   width: 2px;
@@ -211,7 +207,7 @@ button span:nth-child(2) {
     top: 100%;
   }
 }
-button span:nth-child(4) {
+.frontPage-btn span:nth-child(4) {
   bottom: -100%;
   left: 0;
   width: 2px;
@@ -230,11 +226,11 @@ button span:nth-child(4) {
   }
 }
 
-button:nth-child(1) {
+.frontPage-btn:nth-child(1) {
   filter: hue-rotate(290deg);
 }
 
-button:nth-child(3) {
+.frontPage-btn:nth-child(3) {
   filter: hue-rotate(110deg);
 }
 
@@ -268,4 +264,96 @@ hr {
   color: rgba(255, 255, 255, 0.1);
   background-color: rgba(255, 255, 255, 0.1);
   margin: 20px 0;
+}
+
+.swal-modal {
+  padding: 100px;
+  width: 550px;
+  height: 500px;
+  background: #111;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.swal-modal::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  right: 4px;
+  background: #111;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+.swal-modal::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.02);
+  z-index: 1;
+}
+
+.swal-title {
+  z-index: 10;
+}
+
+.swal-modal .game-code {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-code .swal-title {
+  font-size: 40px;
+  color: #0f0;
+}
+
+.swal-text {
+  z-index: 10;
+}
+
+.game-code .swal-text {
+  font-size: 60px;
+  color: rgb(0, 187, 255);
+}
+
+.swal-button {
+  z-index: 10;
+}
+
+.game-code .swal-button {
+  position: absolute;
+  font-size: 15px;
+  transform: translateX(-268%);
+  background-color: #8a2a82;
+}
+
+#gameScreen {
+  display: none;
+}
+
+.game-content {
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#canvas {
+  margin: auto 50px;
+  border: 5px solid black;
+}
+
+h4 {
+  font-size: 2rem;
+}
+
+p {
+  text-align: center;
+  margin-top: 15px;
+  font-weight: bold;
 }
