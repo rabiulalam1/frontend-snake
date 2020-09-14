@@ -374,6 +374,13 @@ hr {
   background-color: #cb5527;
 }
 
+.warning .swal-button {
+  position: absolute;
+  width: 100px;
+  font-size: 15px;
+  transform: translateX(-202%);
+  background-color: #cb5527;
+}
 #gameScreen {
   display: none;
 }

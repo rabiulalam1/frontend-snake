@@ -155,20 +155,20 @@ function handleUnknownRoom() {
   swal({
     className: "warning",
     title: "Invalid Game Code !",
-    buttons: false,
-    timer: 1500,
+    button: "OK",
+  }).then((OK) => {
+    location.reload();
   });
-  location.reload();
 }
 
 function handleCantJoin() {
   swal({
     className: "warning",
     title: "Room is full !",
-    buttons: false,
-    timer: 1500,
+    button: "OK",
+  }).then((OK) => {
+    location.reload();
   });
-  location.reload();
 }
 
 //Starting game in 3 sec delay
