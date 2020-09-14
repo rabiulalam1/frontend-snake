@@ -126,7 +126,6 @@ function handleGameOver(data) {
     swal({
       className: "win",
       title: "You Win!",
-      text: "Like to play again?",
       button: "New Match",
     }).then((newMatch) => {
       location.reload();
@@ -136,7 +135,6 @@ function handleGameOver(data) {
     swal({
       className: "loose",
       title: "You Loose!",
-      text: "Like to play again?",
       button: "New Match",
     }).then((newMatch) => {
       location.reload();

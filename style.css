@@ -117,6 +117,7 @@ body {
 .logo img {
   height: 300px;
   width: 320px;
+  transform: translateX(-12%);
 }
 
 .form-bx {
