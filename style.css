@@ -312,6 +312,16 @@ hr {
   color: #0f0;
 }
 
+.win .swal-title {
+  font-size: 75px;
+  color: #0cc3ec;
+}
+
+.loose .swal-title {
+  font-size: 66px;
+  color: #e11514;
+}
+
 .swal-text {
   z-index: 10;
 }
@@ -321,8 +331,18 @@ hr {
   color: rgb(0, 187, 255);
 }
 
+.instruction .swal-text {
+  position: absolute;
+  font-size: 25px;
+  color: #cb5527;
+  transform: translateX(-43%) translateY(-8%);
+  width: 80%;
+}
+
 .swal-button {
   z-index: 10;
+  color: black;
+  background-color: #ffca08;
 }
 
 .game-code .swal-button {
@@ -330,6 +350,22 @@ hr {
   font-size: 15px;
   transform: translateX(-268%);
   background-color: #8a2a82;
+}
+
+.win .swal-button {
+  position: absolute;
+  width: 150px;
+  font-size: 15px;
+  transform: translateX(-150%);
+  background-color: #cb5527;
+}
+
+.loose .swal-button {
+  position: absolute;
+  width: 150px;
+  font-size: 15px;
+  transform: translateX(-150%);
+  background-color: #cb5527;
 }
 
 #gameScreen {

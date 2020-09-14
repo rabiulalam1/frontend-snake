@@ -3,7 +3,7 @@ const SNAKE_COLOR_P1 = "#d724cc";
 const SNAKE_COLOR_P2 = "#028701";
 const FOOD_COLOR = "#e66916";
 
-const socket = io("https://obscure-citadel-40924.herokuapp.com");
+const socket = io("http://localhost:3000");
 //("https://obscure-citadel-40924.herokuapp.com")
 //("http://localhost:3000")
 
@@ -27,6 +27,10 @@ let win = new Audio();
 win.src = "./winning.mp3";
 let loose = new Audio();
 loose.src = "./loosing.mp3";
+let eat = new Audio();
+eat.src = "./eating.mp3";
+let p1OldScore = 0;
+let p2OldScore = 0;
 
 newGameButton.addEventListener("click", newGame);
 joinGameButton.addEventListener("click", joinGame);
@@ -80,7 +84,15 @@ function paintGame(state) {
   paintPlayer(state.players[1], size, SNAKE_COLOR_P2);
 
   scoreP1Display.innerText = state.players[0].score;
+  if (state.players[0].score > p1OldScore) {
+    eat.play();
+    p1OldScore = state.players[0].score;
+  }
   scoreP2Display.innerText = state.players[1].score;
+  if (state.players[1].score > p2OldScore) {
+    eat.play();
+    p2OldScore = state.players[1].score;
+  }
 }
 
 function paintPlayer(playerState, size, color) {
@@ -114,6 +126,7 @@ function handleGameOver(data) {
   if (data.winner === playerNumber) {
     win.play();
     swal({
+      className: "win",
       title: "You Win!",
       text: "Like to play again?",
       button: "New Match",
@@ -123,6 +136,7 @@ function handleGameOver(data) {
   } else {
     loose.play();
     swal({
+      className: "loose",
       title: "You Loose!",
       text: "Like to play again?",
       button: "New Match",
@@ -153,9 +167,12 @@ function handleCantJoin() {
 
 //Starting game in 3 sec delay
 function handleStartTimer() {
-  swal("Bon Appétit!", {
+  swal({
+    className: "instruction",
+    text:
+      "If you started the game you are PLAYER 1(Purple); If you joined the game you are PLAYER 2(Green). \n\nUse your keyboard arrows to move your snake. \n\nRace your opponent to grab 10 bites.\n\n Bon Appétit !!!",
     buttons: false,
-    timer: 3000,
+    timer: 9000,
   });
 }
 
