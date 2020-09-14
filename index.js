@@ -3,7 +3,7 @@ const SNAKE_COLOR_P1 = "#d724cc";
 const SNAKE_COLOR_P2 = "#028701";
 const FOOD_COLOR = "#e66916";
 
-const socket = io("http://localhost:3000");
+const socket = io("https://obscure-citadel-40924.herokuapp.com");
 //("https://obscure-citadel-40924.herokuapp.com")
 //("http://localhost:3000")
 
@@ -23,10 +23,8 @@ const gameCodeInput = document.getElementById("gameCodeInput");
 const scoreP1Display = document.getElementById("player1Score");
 const scoreP2Display = document.getElementById("player2Score");
 
-let win = new Audio();
-win.src = "./winning.mp3";
-let loose = new Audio();
-loose.src = "./loosing.mp3";
+let result = new Audio();
+result.src = "./result.mp3";
 let eat = new Audio();
 eat.src = "./eating.mp3";
 let p1OldScore = 0;
@@ -124,7 +122,7 @@ function handleGameOver(data) {
   gameActive = false;
 
   if (data.winner === playerNumber) {
-    win.play();
+    result.play();
     swal({
       className: "win",
       title: "You Win!",
@@ -134,7 +132,7 @@ function handleGameOver(data) {
       location.reload();
     });
   } else {
-    loose.play();
+    result.play();
     swal({
       className: "loose",
       title: "You Loose!",
@@ -156,13 +154,25 @@ function handleGameCode(gameCode) {
 }
 
 function handleUnknownRoom() {
-  alert("Unknown Game Code");
-  reset();
+  swal({
+    className: "warning",
+    title: "Invalid Game Code !",
+    icon: "waning",
+    buttons: false,
+    timer: 1500,
+  });
+  location.reload();
 }
 
 function handleCantJoin() {
-  alert("This room is full, plaese create new game");
-  reset();
+  swal({
+    className: "warning",
+    title: "Room is full !",
+    icon: "waning",
+    buttons: false,
+    timer: 1500,
+  });
+  location.reload();
 }
 
 //Starting game in 3 sec delay
@@ -174,10 +184,4 @@ function handleStartTimer() {
     buttons: false,
     timer: 9000,
   });
-}
-
-function reset() {
-  playerNumber = null;
-  initialScreen.style.display = "block";
-  gameScreen.style.display = "none";
 }

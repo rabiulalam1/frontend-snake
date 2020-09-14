@@ -322,6 +322,11 @@ hr {
   color: #e11514;
 }
 
+.warning .swal-title {
+  font-size: 45px;
+  color: red;
+}
+
 .swal-text {
   z-index: 10;
 }
