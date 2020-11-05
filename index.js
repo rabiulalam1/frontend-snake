@@ -37,7 +37,6 @@ function newGame() {
   socket.emit("newGame");
   init();
 }
-console.log(process.env);
 function joinGame() {
   code = gameCodeInput.value;
   socket.emit("joinGame", code);
