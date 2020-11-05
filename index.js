@@ -72,29 +72,28 @@ let alanBtnInstance = alanBtn({
   },
   onCommand: function (commandData) {
     if (commandData.command === "go-left") {
-      socket.emit("keydown", 37);
+      socket.emit("keydown", "37");
     }
   },
   onCommand: function (commandData) {
     if (commandData.command === "go-right") {
-      socket.emit("keydown", 39);
+      socket.emit("keydown", "39");
     }
   },
   onCommand: function (commandData) {
     if (commandData.command === "go-up") {
-      socket.emit("keydown", 40);
+      socket.emit("keydown", "40");
     }
   },
   onCommand: function (commandData) {
     if (commandData.command === "go-down") {
-      socket.emit("keydown", 38);
+      socket.emit("keydown", "38");
     }
   },
   rootEl: document.getElementById("alan-btn"),
 });
 
 function keydown(e) {
-  console.log(e.keyCode);
   socket.emit("keydown", e.keyCode);
 }
 
