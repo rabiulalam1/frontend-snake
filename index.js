@@ -64,7 +64,7 @@ function init() {
 }
 
 let alanBtnInstance = alanBtn({
-  key: "ce496f3089c61166a55f82ffc415d1e62e956eca572e1d8b807a3e2338fdd0dc/stage",
+  key: `${ALAN_KEY}/stage`,
   onCommand: function (commandData) {
     if (commandData.command === "go-left") {
       socket.emit("keydown", "37");
