@@ -64,7 +64,7 @@ function init() {
 }
 
 let alanBtnInstance = alanBtn({
-  key: `${ALAN_KEY}/stage`,
+  key: `${process.env.ALAN_KEY}/stage`,
   onCommand: function (commandData) {
     if (commandData.command === "go-left") {
       socket.emit("keydown", "37");
