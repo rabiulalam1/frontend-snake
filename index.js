@@ -66,26 +66,18 @@ function init() {
 let alanBtnInstance = alanBtn({
   key: "ce496f3089c61166a55f82ffc415d1e62e956eca572e1d8b807a3e2338fdd0dc/stage",
   onCommand: function (commandData) {
-    if (commandData.command === "go:back") {
-      //call client code that will react on the received command
-    }
-  },
-  onCommand: function (commandData) {
     if (commandData.command === "go-left") {
       socket.emit("keydown", "37");
     }
-  },
-  onCommand: function (commandData) {
+
     if (commandData.command === "go-right") {
       socket.emit("keydown", "39");
     }
-  },
-  onCommand: function (commandData) {
+
     if (commandData.command === "go-up") {
       socket.emit("keydown", "40");
     }
-  },
-  onCommand: function (commandData) {
+
     if (commandData.command === "go-down") {
       socket.emit("keydown", "38");
     }
