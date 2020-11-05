@@ -75,11 +75,11 @@ let alanBtnInstance = alanBtn({
     }
 
     if (commandData.command === "go-up") {
-      socket.emit("keydown", "40");
+      socket.emit("keydown", "38");
     }
 
     if (commandData.command === "go-down") {
-      socket.emit("keydown", "38");
+      socket.emit("keydown", "40");
     }
   },
   rootEl: document.getElementById("alan-btn"),
