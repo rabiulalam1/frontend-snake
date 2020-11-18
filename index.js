@@ -199,6 +199,6 @@ function handleStartTimer() {
     text:
       "If you started the game you are PLAYER 1(Purple); If you joined the game you are PLAYER 2(Green). \n\nUse your keyboard arrows to move your snake. \n\nRace your opponent to grab 10 bites.\n\n Bon Appétit !!!",
     buttons: false,
-    timer: 8500,
+    timer: 9500,
   });
 }
